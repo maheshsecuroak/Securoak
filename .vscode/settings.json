@@ -20,5 +20,6 @@
     "titleBar.inactiveBackground": "#25281999",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#252819"
+  "peacock.color": "#252819",
+  "cSpell.words": ["formated", "reformate", "rrid"]
 }

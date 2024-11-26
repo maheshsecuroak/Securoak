@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const billingSchema = new mongoose.Schema({
   location: { type: String, required: true },
@@ -9,11 +9,13 @@ const billingSchema = new mongoose.Schema({
   place: { type: String, required: true },
   phoneNo: { type: String, required: true },
   address: { type: String, required: true },
-  treatments: [{
-    specification: { type: String, required: true },
-    amount: { type: Number, required: true }
-  }],
-  total: { type: Number, required: true }
+  treatments: [
+    {
+      specification: { type: String, required: true },
+      amount: { type: Number, required: true },
+    },
+  ],
+  total: { type: Number, required: true },
 });
 
-module.exports = mongoose.model('Billing', billingSchema);
+module.exports = mongoose.model("Billing", billingSchema);

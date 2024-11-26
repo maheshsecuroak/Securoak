@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const appointmentSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
@@ -7,8 +7,8 @@ const appointmentSchema = new mongoose.Schema({
   time: { type: String, required: true },
   treatment: { type: String, required: true },
   doctor: { type: String, required: true },
-  status: { type: String, default: 'Confirmed' },
-  rrid: { type: String, required: true }
+  status: { type: String, default: "Confirmed" },
+  rrid: { type: String },
 });
 
-module.exports = mongoose.model('Appointment', appointmentSchema);
+module.exports = mongoose.model("Appointment", appointmentSchema);
