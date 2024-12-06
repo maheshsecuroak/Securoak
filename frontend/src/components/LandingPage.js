@@ -84,32 +84,8 @@ function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <div className="w-full flex flex-col md:flex-row">
-        {/* Left header (white background) */}
-        <div className="w-full md:w-1/2 bg-white p-4">
-          <div className="flex items-center space-x-3">
-            <img src={Logo} alt="logo" className="w-6 md:w-8 h-6 md:h-8 text-teal-500" />
-            <h1 className="text-xl md:text-2xl font-semibold text-teal-500">SECUROAK</h1>
-          </div>
-        </div>
-
-        {/* Right header (teal background) */}
-        <div className="w-full md:w-1/2 bg-teal-500 p-4">
-          <div className="flex flex-wrap justify-center md:justify-end items-center space-x-2 md:space-x-6">
-            <button className="px-3 md:px-4 py-1 md:py-2 text-sm md:text-base text-white hover:bg-teal-600 rounded-md transition-colors">
-              Appointment
-            </button>
-            <button className="px-3 md:px-4 py-1 md:py-2 text-sm md:text-base text-white hover:bg-teal-600 rounded-md transition-colors">
-              Billing
-            </button>
-            <button className="px-3 md:px-4 py-1 md:py-2 text-sm md:text-base bg-white text-teal-600 hover:bg-gray-100 rounded-md transition-colors">
-              New Registration
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="mt-0 min-h-screen flex flex-col">
+   
 
       {/* Main Content */}
       <div className="flex flex-col md:flex-row flex-1">

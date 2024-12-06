@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 function Prescription() {
   const [prescriptions, setPrescriptions] = useState([]);
@@ -88,6 +88,55 @@ function Prescription() {
   const handleRepeatChange = (option) => {
     setNewPrescription((prev) => ({ ...prev, repeat: option }));
   };
+  const printRef = useRef(null);
+
+  const handlePrint = useCallback(() => {
+    const printContent = printRef.current;
+    if (!printContent) return;
+
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) {
+      console.error("Failed to open print window");
+      return;
+    }
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Billing Data</title>
+          <style>
+            body { font-family: Arial, sans-serif; }
+            table { 
+              width: 100%; 
+              border-collapse: collapse; 
+              margin-bottom: 20px;
+            }
+            th, td { 
+              border: 1px solid #ddd; 
+              padding: 8px; 
+              text-align: left; 
+            }
+            th { 
+              background-color: #f2f2f2; 
+              font-weight: bold;
+            }
+            h3 { margin-top: 20px; }
+          </style>
+        </head>
+        <body>
+          ${printContent.innerHTML}
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+    printWindow.focus();
+
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 250);
+  }, []);
 
   const incrementDosage = () => {
     setNewPrescription((prev) => ({ ...prev, dosage: prev.dosage + 1 }));
@@ -306,12 +355,15 @@ function Prescription() {
       <div className="relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
           <h2 className="text-xl font-semibold">Prescription</h2>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-md">
+          <button
+            onClick={handlePrint}
+            className="bg-blue-600 text-white px-6 py-2 rounded-md"
+          >
             PRINT
           </button>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" ref={printRef}>
           <table className="w-full min-w-[800px]">
             <thead>
               <tr className="text-gray-500">
