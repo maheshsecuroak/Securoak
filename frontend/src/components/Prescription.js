@@ -21,7 +21,7 @@ function Prescription() {
 
   const fetchPrescriptions = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/prescriptions");
+      const response = await fetch("https://securoak.onrender.com/api/prescriptions");
       if (!response.ok) {
         throw new Error("Failed to fetch prescriptions");
       }
