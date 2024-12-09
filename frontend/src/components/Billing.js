@@ -29,7 +29,7 @@ function Billing() {
   // Fetch submitted data function
   const fetchSubmittedData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/billing");
+      const response = await fetch("https://securoak.onrender.com/api/billing");
       if (!response.ok) {
         throw new Error("Failed to fetch billing data");
       }
