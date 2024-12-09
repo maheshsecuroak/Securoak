@@ -21,12 +21,10 @@ function Billing() {
   const [success, setSuccess] = useState("");
   const [submittedData, setSubmittedData] = useState([]);
 
-  // Fetch submitted data from backend on component mount
   useEffect(() => {
     fetchSubmittedData();
   }, []);
 
-  // Fetch submitted data function
   const fetchSubmittedData = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/billing");
@@ -41,7 +39,6 @@ function Billing() {
     }
   };
 
-  // Reset form to initial state
   const resetForm = () => {
     setBillingInfo({
       location: "",
@@ -55,6 +52,7 @@ function Billing() {
     });
     setTreatments([{ id: 1, specification: "Teeth Cleaning", amount: 300 }]);
   };
+
   const printRef = useRef(null);
 
   const handlePrint = useCallback(() => {
@@ -72,7 +70,10 @@ function Billing() {
         <head>
           <title>Billing Data</title>
           <style>
-            body { font-family: Arial, sans-serif; }
+            body { 
+              font-family: Arial, sans-serif; 
+              margin: 20px;
+            }
             table { 
               width: 100%; 
               border-collapse: collapse; 
@@ -82,12 +83,16 @@ function Billing() {
               border: 1px solid #ddd; 
               padding: 8px; 
               text-align: left; 
+              font-size: 12px;
             }
             th { 
               background-color: #f2f2f2; 
               font-weight: bold;
             }
             h3 { margin-top: 20px; }
+            @media print {
+              table { font-size: 10px; }
+            }
           </style>
         </head>
         <body>
@@ -125,7 +130,9 @@ function Billing() {
   };
 
   const removeTreatment = (id) => {
-    setTreatments(treatments.filter((treatment) => treatment.id !== id));
+    if (treatments.length > 1) {
+      setTreatments(treatments.filter((treatment) => treatment.id !== id));
+    }
   };
 
   const calculateTotal = () => {
@@ -158,12 +165,8 @@ function Billing() {
         throw new Error("Failed to submit billing information");
       }
 
-      // Refresh the submitted data after successful submission
       fetchSubmittedData();
-
-      // Reset the form
       resetForm();
-
       setSuccess("Billing information submitted successfully!");
     } catch (error) {
       console.error("Error submitting billing information:", error);
@@ -186,49 +189,44 @@ function Billing() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="location" className="block mb-2">
+            <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-700">
               Location
             </label>
-            <div className="relative">
-              <select
-                id="location"
-                name="location"
-                value={billingInfo.location}
-                onChange={handleInputChange}
-                required
-                className="w-full border rounded-md p-2 pr-10"
-              >
-                <option value="">Select</option>
-                <option value="Location 1">Location 1</option>
-                <option value="Location 2">Location 2</option>
-              </select>
-            </div>
+            <select
+              id="location"
+              name="location"
+              value={billingInfo.location}
+              onChange={handleInputChange}
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+            >
+              <option value="">Select Location</option>
+              <option value="Location 1">Location 1</option>
+              <option value="Location 2">Location 2</option>
+            </select>
           </div>
           <div>
-            <label htmlFor="date" className="block mb-2">
+            <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-700">
               Date
             </label>
-            <div className="relative">
-              <input
-                type="date"
-                id="date"
-                name="date"
-                value={billingInfo.date}
-                onChange={handleInputChange}
-                required
-                className="w-full border rounded-md p-2 pr-10"
-              />
-            </div>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={billingInfo.date}
+              onChange={handleInputChange}
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+            />
           </div>
         </div>
 
-        <h2 className="text-xl font-semibold mb-4">Receipt</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="rrid" className="block mb-2">
+            <label htmlFor="rrid" className="block mb-2 text-sm font-medium text-gray-700">
               RRID
             </label>
             <input
@@ -238,11 +236,11 @@ function Billing() {
               value={billingInfo.rrid}
               onChange={handleInputChange}
               required
-              className="w-full border rounded-md p-2"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="name" className="block mb-2">
+            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-700">
               Name
             </label>
             <input
@@ -252,30 +250,28 @@ function Billing() {
               value={billingInfo.name}
               onChange={handleInputChange}
               required
-              className="w-full border rounded-md p-2"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="dob" className="block mb-2">
-              Dob
+            <label htmlFor="dob" className="block mb-2 text-sm font-medium text-gray-700">
+              Date of Birth
             </label>
-            <div className="relative">
-              <input
-                type="date"
-                id="dob"
-                name="dob"
-                value={billingInfo.dob}
-                onChange={handleInputChange}
-                required
-                className="w-full border rounded-md p-2 pr-10"
-              />
-            </div>
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              value={billingInfo.dob}
+              onChange={handleInputChange}
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+            />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="place" className="block mb-2">
+            <label htmlFor="place" className="block mb-2 text-sm font-medium text-gray-700">
               Place
             </label>
             <input
@@ -285,12 +281,12 @@ function Billing() {
               value={billingInfo.place}
               onChange={handleInputChange}
               required
-              className="w-full border rounded-md p-2"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="phoneNo" className="block mb-2">
-              Phone No
+            <label htmlFor="phoneNo" className="block mb-2 text-sm font-medium text-gray-700">
+              Phone Number
             </label>
             <input
               type="tel"
@@ -299,11 +295,11 @@ function Billing() {
               value={billingInfo.phoneNo}
               onChange={handleInputChange}
               required
-              className="w-full border rounded-md p-2"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="address" className="block mb-2">
+            <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-700">
               Address
             </label>
             <input
@@ -313,96 +309,112 @@ function Billing() {
               value={billingInfo.address}
               onChange={handleInputChange}
               required
-              className="w-full border rounded-md p-2"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
         </div>
 
-        <h3 className="text-lg font-semibold mt-6 mb-2">Treatments</h3>
-        {treatments.map((treatment, index) => (
-          <div
-            key={treatment.id}
-            className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-2"
-          >
-            <input
-              type="text"
-              value={treatment.specification}
-              onChange={(e) =>
-                handleTreatmentChange(
-                  treatment.id,
-                  "specification",
-                  e.target.value
-                )
-              }
-              placeholder="Specification"
-              className="flex-grow w-full sm:w-auto mt-1 block rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-              required
-            />
-            <input
-              type="number"
-              value={treatment.amount}
-              onChange={(e) =>
-                handleTreatmentChange(treatment.id, "amount", e.target.value)
-              }
-              placeholder="Amount"
-              className="w-full sm:w-32 mt-1 block rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-              required
-            />
-            {index > 0 && (
-              <button
-                type="button"
-                onClick={() => removeTreatment(treatment.id)}
-                className="text-red-600 hover:text-red-800 mt-2 sm:mt-0"
-              >
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-
-        <div className="flex justify-between items-center mt-4">
-          <button
-            type="button"
-            onClick={addTreatment}
-            className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-blue-200 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          >
-            Add Treatment
-          </button>
-
-          <div className="space-x-4">
-            <button
-              type="submit"
-              className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              disabled={isLoading}
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold">Treatments</h3>
+          {treatments.map((treatment, index) => (
+            <div 
+              key={treatment.id} 
+              className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-start sm:items-center"
             >
-              {isLoading ? "Submitting..." : "Submit Billing"}
-            </button>
+              <div className="flex-grow w-full">
+                <label htmlFor={`specification-${treatment.id}`} className="sr-only">
+                  Treatment Specification
+                </label>
+                <input
+                  type="text"
+                  id={`specification-${treatment.id}`}
+                  value={treatment.specification}
+                  onChange={(e) =>
+                    handleTreatmentChange(
+                      treatment.id,
+                      "specification",
+                      e.target.value
+                    )
+                  }
+                  placeholder="Treatment Specification"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                  required
+                />
+              </div>
+              <div className="w-full sm:w-32">
+                <label htmlFor={`amount-${treatment.id}`} className="sr-only">
+                  Treatment Amount
+                </label>
+                <input
+                  type="number"
+                  id={`amount-${treatment.id}`}
+                  value={treatment.amount}
+                  onChange={(e) =>
+                    handleTreatmentChange(
+                      treatment.id,
+                      "amount",
+                      e.target.value
+                    )
+                  }
+                  placeholder="Amount"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                  required
+                />
+              </div>
+              {index > 0 && (
+                <button
+                  type="button"
+                  onClick={() => removeTreatment(treatment.id)}
+                  className="text-red-600 hover:text-red-800 sm:ml-4 text-sm"
+                >
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
 
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <button
               type="button"
-              onClick={handlePrint}
-              className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              onClick={addTreatment}
+              className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              Print Data
+              Add Treatment
             </button>
+
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              >
+                {isLoading ? "Submitting..." : "Submit Billing"}
+              </button>
+              <button
+                type="button"
+                onClick={handlePrint}
+                className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              >
+                Print Data
+              </button>
+            </div>
+          </div>
+
+          <div className="text-right mt-4">
+            <strong className="text-lg">Total: ${calculateTotal().toFixed(2)}</strong>
           </div>
         </div>
-
-        <div className="mt-4 text-right">
-          <strong>Total: ${calculateTotal()}</strong>
-        </div>
       </form>
-{/* Submitted Data Table */}
-<div className="mt-8" ref={printRef}>
-  <h3 className="text-lg font-semibold mb-4">Submitted Data</h3>
-  <div className="overflow-x-auto">
-    <table className="w-full border-collapse min-w-max">
-      <thead>
-        <tr>
-          <th className="p-2 border text-left">Location</th>
-          <th className="p-2 border text-left">Date</th>
-          <th className="p-2 border text-left">RRID</th>
-          <th className="p-2 border text-left">Name</th>
+
+      <div className="mt-8 overflow-x-auto" ref={printRef}>
+        <h3 className="text-lg font-semibold mb-4">Submitted Data</h3>
+        <table className="w-full border-collapse min-w-max">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="p-2 border text-left">Location</th>
+              <th className="p-2 border text-left">Date</th>
+              <th className="p-2 border text-left">RRID</th>
+              <th className="p-2 border text-left">Name</th>
           <th className="p-2 border text-left">DOB</th>
           <th className="p-2 border text-left">Place</th>
           <th className="p-2 border text-left">Phone No</th>
@@ -436,9 +448,7 @@ function Billing() {
     </table>
   </div>
 </div>
-
-    </div>
-  );
+);
 }
 
 export default Billing;

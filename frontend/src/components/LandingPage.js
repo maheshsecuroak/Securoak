@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "./Assests/Landing Page.png";
-import Logo from "./Assests/logo.png";
+
 
 function LandingPage() {
   const [rrid, setRrid] = useState("");
