@@ -11,7 +11,7 @@ function ExistingCustomer() {
   useEffect(() => {
     const fetchCustomerData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${id}`);
+        const response = await fetch(`https://securoak.onrender.com/api/users/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch customer data');
         }
