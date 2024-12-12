@@ -161,8 +161,8 @@ function Prescription() {
   };
 
   return (
-    <div className="p-4 md:p-6 mx-auto max-w-7xl">
-      <div className="mb-8">
+    <div className="p-4 md:p-6 mx-auto max-w-8xl">
+      <div className="bg-white rounded-lg shadow-md mb-8 p-5 ">
         <h2 className="text-xl font-semibold mb-4">Prescription</h2>
 
         {error && (
@@ -352,9 +352,9 @@ function Prescription() {
         </form>
       </div>
 
-      <div className="relative">
+      <div className="relative bg-white rounded-lg shadow-md mb-8 p-5">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-          <h2 className="text-xl font-semibold">Prescription</h2>
+          <h2 className="text-xl font-semibold">Prescription Table</h2>
           <button
             onClick={handlePrint}
             className="bg-blue-600 text-white px-6 py-2 rounded-md"

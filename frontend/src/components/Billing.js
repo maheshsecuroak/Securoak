@@ -178,6 +178,8 @@ function Billing() {
 
   return (
     <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+
+      <div className="bg-white shadow-md rounded-lg p-6 mb-8">
       <h2 className="text-xl font-semibold mb-4">Billing</h2>
 
       {error && (
@@ -189,10 +191,13 @@ function Billing() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="location"
+              className="block text-sm font-medium mb-2"
+            >
               Location
             </label>
             <select
@@ -201,7 +206,7 @@ function Billing() {
               value={billingInfo.location}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             >
               <option value="">Select Location</option>
               <option value="Location 1">Location 1</option>
@@ -209,7 +214,10 @@ function Billing() {
             </select>
           </div>
           <div>
-            <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="date"
+              className="block text-sm font-medium mb-2"
+            >
               Date
             </label>
             <input
@@ -219,14 +227,17 @@ function Billing() {
               value={billingInfo.date}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="rrid" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="rrid"
+              className="block text-sm font-medium mb-2"
+            >
               RRID
             </label>
             <input
@@ -236,11 +247,14 @@ function Billing() {
               value={billingInfo.rrid}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <div>
-            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium mb-2"
+            >
               Name
             </label>
             <input
@@ -250,11 +264,14 @@ function Billing() {
               value={billingInfo.name}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <div>
-            <label htmlFor="dob" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="dob"
+              className="block text-sm font-medium mb-2"
+            >
               Date of Birth
             </label>
             <input
@@ -264,14 +281,17 @@ function Billing() {
               value={billingInfo.dob}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="place" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="place"
+              className="block text-sm font-medium mb-2"
+            >
               Place
             </label>
             <input
@@ -281,11 +301,14 @@ function Billing() {
               value={billingInfo.place}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <div>
-            <label htmlFor="phoneNo" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="phoneNo"
+              className="block text-sm font-medium mb-2"
+            >
               Phone Number
             </label>
             <input
@@ -295,11 +318,14 @@ function Billing() {
               value={billingInfo.phoneNo}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <div>
-            <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-700">
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium mb-2"
+            >
               Address
             </label>
             <input
@@ -309,20 +335,23 @@ function Billing() {
               value={billingInfo.address}
               onChange={handleInputChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+              className="mt-2 h-10 block w-full  rounded-md border  border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
             />
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           <h3 className="text-lg font-semibold">Treatments</h3>
           {treatments.map((treatment, index) => (
-            <div 
-              key={treatment.id} 
+            <div
+              key={treatment.id}
               className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-start sm:items-center"
             >
               <div className="flex-grow w-full">
-                <label htmlFor={`specification-${treatment.id}`} className="sr-only">
+                <label
+                  htmlFor={`specification-${treatment.id}`}
+                  className="sr-only"
+                >
                   Treatment Specification
                 </label>
                 <input
@@ -337,7 +366,7 @@ function Billing() {
                     )
                   }
                   placeholder="Treatment Specification"
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                  className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
                   required
                 />
               </div>
@@ -357,7 +386,7 @@ function Billing() {
                     )
                   }
                   placeholder="Amount"
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                  className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
                   required
                 />
               </div>
@@ -377,7 +406,7 @@ function Billing() {
             <button
               type="button"
               onClick={addTreatment}
-              className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full sm:w-auto px-4 py-2 border border-transparent  rounded-md border shadow-sm text-sm font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Add Treatment
             </button>
@@ -386,14 +415,14 @@ function Billing() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                className="w-full sm:w-auto px-4 py-2 border border-transparent  rounded-md border shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
               >
                 {isLoading ? "Submitting..." : "Submit Billing"}
               </button>
               <button
                 type="button"
                 onClick={handlePrint}
-                className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                className="w-full sm:w-auto px-4 py-2 border border-transparent  rounded-md border shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
               >
                 Print Data
               </button>
@@ -401,54 +430,57 @@ function Billing() {
           </div>
 
           <div className="text-right mt-4">
-            <strong className="text-lg">Total: ${calculateTotal().toFixed(2)}</strong>
+            <strong className="text-lg">
+              Total: ${calculateTotal().toFixed(2)}
+            </strong>
           </div>
         </div>
       </form>
+      </div>
 
-      <div className="mt-8 overflow-x-auto" ref={printRef}>
+      <div className="mt-8 overflow-x-auto bg-white rounded-lg shadow-md mb-8 p-5" ref={printRef}>
         <h3 className="text-lg font-semibold mb-4">Submitted Data</h3>
         <table className="w-full border-collapse min-w-max">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="p-2 border text-left">Location</th>
-              <th className="p-2 border text-left">Date</th>
-              <th className="p-2 border text-left">RRID</th>
-              <th className="p-2 border text-left">Name</th>
-          <th className="p-2 border text-left">DOB</th>
-          <th className="p-2 border text-left">Place</th>
-          <th className="p-2 border text-left">Phone No</th>
-          <th className="p-2 border text-left">Address</th>
-          <th className="p-2 border text-left">Treatments</th>
-          <th className="p-2 border text-right">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {submittedData.map((data, index) => (
-          <tr key={index}>
-            <td className="p-2 border">{data.location}</td>
-            <td className="p-2 border">{data.date}</td>
-            <td className="p-2 border">{data.rrid}</td>
-            <td className="p-2 border">{data.name}</td>
-            <td className="p-2 border">{data.dob}</td>
-            <td className="p-2 border">{data.place}</td>
-            <td className="p-2 border">{data.phoneNo}</td>
-            <td className="p-2 border">{data.address}</td>
-            <td className="p-2 border">
-              {Array.isArray(data.treatments)
-                ? data.treatments.map((t) => t.specification).join(", ")
-                : data.treatments}
-            </td>
-            <td className="p-2 border text-right">
-              ${Number(data.total).toFixed(2)}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-);
+            <tr className="text-gray-500">
+              <th className="p-2  text-left">Location</th>
+              <th className="p-2  text-left">Date</th>
+              <th className="p-2  text-left">RRID</th>
+              <th className="p-2  text-left">Name</th>
+              <th className="p-2  text-left">DOB</th>
+              <th className="p-2  text-left">Place</th>
+              <th className="p-2  text-left">Phone No</th>
+              <th className="p-2  text-left">Address</th>
+              <th className="p-2  text-left">Treatments</th>
+              <th className="p-2  text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {submittedData.map((data, index) => (
+              <tr key={index}>
+                <td className="p-2 border">{data.location}</td>
+                <td className="p-2 border">{data.date}</td>
+                <td className="p-2 border">{data.rrid}</td>
+                <td className="p-2 border">{data.name}</td>
+                <td className="p-2 border">{data.dob}</td>
+                <td className="p-2 border">{data.place}</td>
+                <td className="p-2 border">{data.phoneNo}</td>
+                <td className="p-2 border">{data.address}</td>
+                <td className="p-2 border">
+                  {Array.isArray(data.treatments)
+                    ? data.treatments.map((t) => t.specification).join(", ")
+                    : data.treatments}
+                </td>
+                <td className="p-2 border text-right">
+                  ${Number(data.total).toFixed(2)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
 
 export default Billing;
