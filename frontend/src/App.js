@@ -60,7 +60,7 @@ function Navbar() {
             <Link to="/" className="flex items-center">
               <img className="h-8 w-auto" src={logo} alt="SecuroAK Logo" />
               <h1
-                className={`text-xl md:text-2xl font-semibold ml-2 hidden  sm:block ${getLogoTextColor()}`}
+                className={`text-xl md:text-2xl font-semibold ml-2 hiddenZ  sm:block ${getLogoTextColor()}`}
               >
                 SECUROAK
               </h1>
@@ -109,29 +109,33 @@ function Navbar() {
             <Link
               to="/appointment"
               className={`hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === "/" || 
-                location.pathname === "/signup" || 
-                location.pathname === "/login" ? "hidden" : "text-gray-700"
+                location.pathname === "/" ||
+                location.pathname === "/signup" ||
+                location.pathname === "/login"
+                  ? "hidden"
+                  : "text-gray-700"
               }`}
             >
               Appointment
             </Link>
-            {location.pathname !== "/" && 
-             location.pathname !== "/signup" && 
-             location.pathname !== "/login" && (
-              <Link
-                to="/prescription"
-                className="text-gray-700 hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Prescription
-              </Link>
-            )}
+            {location.pathname !== "/" &&
+              location.pathname !== "/signup" &&
+              location.pathname !== "/login" && (
+                <Link
+                  to="/prescription"
+                  className="text-gray-700 hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Prescription
+                </Link>
+              )}
             <Link
               to="/billing"
               className={`hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === "/" || 
-                location.pathname === "/signup" || 
-                location.pathname === "/login" ? "hidden" : "text-gray-700"
+                location.pathname === "/" ||
+                location.pathname === "/signup" ||
+                location.pathname === "/login"
+                  ? "hidden"
+                  : "text-gray-700"
               }`}
             >
               Billing
@@ -168,31 +172,35 @@ function Navbar() {
                 <Link
                   to="/appointment"
                   className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 ${
-                    location.pathname === "/" || 
-                    location.pathname === "/signup" || 
-                    location.pathname === "/login" ? "hidden" : ""
+                    location.pathname === "/" ||
+                    location.pathname === "/signup" ||
+                    location.pathname === "/login"
+                      ? "hidden"
+                      : ""
                   }`}
                   onClick={toggleMobileMenu}
                 >
                   Appointment
                 </Link>
-                {location.pathname !== "/" && 
-                 location.pathname !== "/signup" && 
-                 location.pathname !== "/login" && (
-                  <Link
-                    to="/prescription"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100"
-                    onClick={toggleMobileMenu}
-                  >
-                    Prescription
-                  </Link>
-                )}
+                {location.pathname !== "/" &&
+                  location.pathname !== "/signup" &&
+                  location.pathname !== "/login" && (
+                    <Link
+                      to="/prescription"
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100"
+                      onClick={toggleMobileMenu}
+                    >
+                      Prescription
+                    </Link>
+                  )}
                 <Link
                   to="/billing"
                   className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 ${
-                    location.pathname === "/" || 
-                    location.pathname === "/signup" || 
-                    location.pathname === "/login" ? "hidden" : ""
+                    location.pathname === "/" ||
+                    location.pathname === "/signup" ||
+                    location.pathname === "/login"
+                      ? "hidden"
+                      : ""
                   }`}
                   onClick={toggleMobileMenu}
                 >
