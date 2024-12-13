@@ -202,7 +202,7 @@ function Billing() {
                 value={billingInfo.location}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               >
                 <option value="">Select Location</option>
                 <option value="Location 1">Location 1</option>
@@ -220,7 +220,7 @@ function Billing() {
                 value={billingInfo.date}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
           </div>
@@ -237,7 +237,7 @@ function Billing() {
                 value={billingInfo.rrid}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -251,7 +251,7 @@ function Billing() {
                 value={billingInfo.name}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -265,7 +265,7 @@ function Billing() {
                 value={billingInfo.dob}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
           </div>
@@ -282,7 +282,7 @@ function Billing() {
                 value={billingInfo.place}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -296,7 +296,7 @@ function Billing() {
                 value={billingInfo.phoneNo}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -310,7 +310,7 @@ function Billing() {
                 value={billingInfo.address}
                 onChange={handleInputChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                className="mt-1 w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
           </div>
@@ -338,7 +338,7 @@ function Billing() {
                       )
                     }
                     placeholder="Treatment Specification"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                    className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     required
                   />
                 </div>
@@ -358,7 +358,7 @@ function Billing() {
                       )
                     }
                     placeholder="Amount"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                    className="w-full px-3 md:px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     required
                   />
                 </div>
@@ -412,36 +412,36 @@ function Billing() {
         <h3 className="text-lg font-semibold mb-4">Submitted Data</h3>
         <table className="w-full border-collapse min-w-max">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="p-2 border text-left">Location</th>
-              <th className="p-2 border text-left">Date</th>
-              <th className="p-2 border text-left">RRID</th>
-              <th className="p-2 border text-left">Name</th>
-          <th className="p-2 border text-left">DOB</th>
-          <th className="p-2 border text-left">Place</th>
-          <th className="p-2 border text-left">Phone No</th>
-          <th className="p-2 border text-left">Address</th>
-          <th className="p-2 border text-left">Treatments</th>
-          <th className="p-2 border text-right">Total</th>
+            <tr className="text-gray-500">
+              <th className="p-2  text-left">Location</th>
+              <th className="p-2  text-left">Date</th>
+              <th className="p-2  text-left">RRID</th>
+              <th className="p-2  text-left">Name</th>
+          <th className="p-2  text-left">DOB</th>
+          <th className="p-2  text-left">Place</th>
+          <th className="p-2  text-left">Phone No</th>
+          <th className="p-2  text-left">Address</th>
+          <th className="p-2  text-left">Treatments</th>
+          <th className="p-2  text-right">Total</th>
         </tr>
       </thead>
       <tbody>
         {submittedData.map((data, index) => (
           <tr key={index}>
-            <td className="p-2 border">{data.location}</td>
-            <td className="p-2 border">{data.date}</td>
-            <td className="p-2 border">{data.rrid}</td>
-            <td className="p-2 border">{data.name}</td>
-            <td className="p-2 border">{data.dob}</td>
-            <td className="p-2 border">{data.place}</td>
-            <td className="p-2 border">{data.phoneNo}</td>
-            <td className="p-2 border">{data.address}</td>
-            <td className="p-2 border">
+            <td className="p-2 ">{data.location}</td>
+            <td className="p-2 ">{data.date}</td>
+            <td className="p-2 ">{data.rrid}</td>
+            <td className="p-2 ">{data.name}</td>
+            <td className="p-2 ">{data.dob}</td>
+            <td className="p-2 ">{data.place}</td>
+            <td className="p-2 ">{data.phoneNo}</td>
+            <td className="p-2 ">{data.address}</td>
+            <td className="p-2 ">
               {Array.isArray(data.treatments)
                 ? data.treatments.map((t) => t.specification).join(", ")
                 : data.treatments}
             </td>
-            <td className="p-2 border text-right">
+            <td className="p-2  text-right">
               ${Number(data.total).toFixed(2)}
             </td>
           </tr>
