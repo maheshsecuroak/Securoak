@@ -24,9 +24,9 @@ function Navbar() {
 
   const getNavbarColor = () => {
     switch (location.pathname) {
-      case "/":
+      case "/landing":
       case "/signup":
-      case "/login":
+      case "/":
         return "bg-gradient-to-r from-white to-teal-500 text-white";
       default:
         return "bg-white shadow";
@@ -35,9 +35,9 @@ function Navbar() {
 
   const getLogoTextColor = () => {
     switch (location.pathname) {
-      case "/":
+      case "/landing":
       case "/signup":
-      case "/login":
+      case "/":
         return "text-teal-500";
       default:
         return "text-teal-500";
@@ -57,7 +57,7 @@ function Navbar() {
       <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/landing" className="flex items-center">
               <img className="h-8 w-auto" src={logo} alt="SecuroAK Logo" />
               <h1
                 className={`text-xl md:text-2xl font-semibold ml-2 hiddenZ  sm:block ${getLogoTextColor()}`}
@@ -109,18 +109,18 @@ function Navbar() {
             <Link
               to="/appointment"
               className={`hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === "/" ||
+                location.pathname === "/landing" ||
                 location.pathname === "/signup" ||
-                location.pathname === "/login"
+                location.pathname === "/"
                   ? "hidden"
                   : "text-gray-700"
               }`}
             >
               Appointment
             </Link>
-            {location.pathname !== "/" &&
+            {location.pathname !== "/landing" &&
               location.pathname !== "/signup" &&
-              location.pathname !== "/login" && (
+              location.pathname !== "/" && (
                 <Link
                   to="/prescription"
                   className="text-gray-700 hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium"
@@ -131,9 +131,9 @@ function Navbar() {
             <Link
               to="/billing"
               className={`hover:opacity-80 px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === "/" ||
+                location.pathname === "/landing" ||
                 location.pathname === "/signup" ||
-                location.pathname === "/login"
+                location.pathname === "/"
                   ? "hidden"
                   : "text-gray-700"
               }`}
@@ -144,7 +144,7 @@ function Navbar() {
               <Link
                 to="/customer/:id"
                 className={`${
-                  location.pathname === "/"
+                  location.pathname === "/landing"
                     ? "bg-white text-teal-500"
                     : "bg-teal-500 text-white"
                 } px-6 py-2 rounded-full hover:opacity-90 text-sm font-medium`}
@@ -155,9 +155,9 @@ function Navbar() {
               <Link
                 to="/registration"
                 className={`${
-                  location.pathname === "/" ||
+                  location.pathname === "/landing" ||
                   location.pathname === "/signup" ||
-                  location.pathname === "/login"
+                  location.pathname === "/"
                     ? "bg-white text-teal-500 rounded-lg"
                     : "bg-customBlue text-white"
                 } px-6 py-2 rounded-full hover:opacity-90 text-sm font-medium`}
@@ -172,9 +172,9 @@ function Navbar() {
                 <Link
                   to="/appointment"
                   className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 ${
-                    location.pathname === "/" ||
+                    location.pathname === "/landing" ||
                     location.pathname === "/signup" ||
-                    location.pathname === "/login"
+                    location.pathname === "/"
                       ? "hidden"
                       : ""
                   }`}
@@ -182,9 +182,9 @@ function Navbar() {
                 >
                   Appointment
                 </Link>
-                {location.pathname !== "/" &&
+                {location.pathname !== "/landing" &&
                   location.pathname !== "/signup" &&
-                  location.pathname !== "/login" && (
+                  location.pathname !== "/" && (
                     <Link
                       to="/prescription"
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100"
@@ -196,9 +196,9 @@ function Navbar() {
                 <Link
                   to="/billing"
                   className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 ${
-                    location.pathname === "/" ||
+                    location.pathname === "/landing" ||
                     location.pathname === "/signup" ||
-                    location.pathname === "/login"
+                    location.pathname === "/"
                       ? "hidden"
                       : ""
                   }`}
@@ -239,9 +239,9 @@ function App() {
         <Navbar />
         <main className="container mx-auto px-4 pt-20 pb-6">
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/landing" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/registration" element={<NewRegistration />} />
             <Route path="/customer/:id" element={<ExistingCustomer />} />
             <Route path="/appointment" element={<Appointment />} />

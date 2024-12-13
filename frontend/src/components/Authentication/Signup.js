@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "./AuthLayout";
-import Li from "../Assests/linkedin.png"
-import Google from "../Assests/google.png"
+import Li from "../Assests/linkedin.png";
+import Google from "../Assests/google.png";
 import axios from "axios";
 
 function Signup() {
@@ -44,22 +44,14 @@ function Signup() {
             onClick={() => handleSocialLogin("google")}
             className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
-            <img
-              src={Google}
-              alt="Google"
-              className="mr-2 h-5 w-5"
-            />
+            <img src={Google} alt="Google" className="mr-2 h-5 w-5" />
             Google
           </button>
           <button
             onClick={() => handleSocialLogin("linkedin")}
             className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
-            <img
-              src={Li}
-              alt="Linkedin"
-              className="mr-2 h-5 w-5"
-            />
+            <img src={Li} alt="Linkedin" className="mr-2 h-5 w-5" />
             Linkedin
           </button>
         </div>
@@ -124,7 +116,7 @@ function Signup() {
           <div className="text-sm text-center">
             Already have an account?{" "}
             <Link
-              to="/login"
+              to="/"
               className="font-medium text-teal-bg-teal-500 hover:text-primary-dark"
             >
               Login
